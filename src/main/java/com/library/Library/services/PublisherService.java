@@ -30,7 +30,10 @@ public class PublisherService {
     public Publisher updatePublisher(Long publisherId, Publisher newPublisher){
         Publisher ps = this.publisherRepository.findById(publisherId).orElse(null);
         assert ps != null;
-        BeanUtils.copyProperties(newPublisher,ps,"id_editorial");
+        BeanUtils.copyProperties(newPublisher,ps,"publisherId");
         return  this.publisherRepository.save(ps);
     }
+
+
+    
 }

@@ -43,11 +43,12 @@ public class BookService {
     public Book updateBook(Long bookId, Book newBook){
         Book bk = this.bookRepository.findById(bookId).orElse(null);
         assert bk != null;
-        BeanUtils.copyProperties(newBook,bk,"id_matricula");
+        BeanUtils.copyProperties(newBook,bk,"bookId");
         return  this.bookRepository.save(bk);
     }
 
     public List<Book> getBookByPublisher(Long bookId){
         return this.bookRepository.getBookByPublisher(bookId);
     }
+
 }

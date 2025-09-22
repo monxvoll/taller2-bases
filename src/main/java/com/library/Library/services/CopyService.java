@@ -39,7 +39,7 @@ public class CopyService {
     public Copy updateCopy(Long copyId, Copy newCopy){
         Copy cy = this.copyRepository.findById(copyId).orElse(null);
         assert cy != null;
-        BeanUtils.copyProperties(newCopy,cy,"id_ejemplar");
+        BeanUtils.copyProperties(newCopy,cy,"copyId");
         return  this.copyRepository.save(cy);
     }
 }
